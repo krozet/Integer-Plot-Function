@@ -1,3 +1,11 @@
+/*
+Keawa Rozet
+CSc 600-01 - Programming Languages
+Homework #2
+Integer Plot Function
+*/
+
+
 #include <iostream>
 #include <stdio.h>
 #include <cstring>
@@ -108,15 +116,19 @@ const char NUMBERS[SINGLE_DIGITS][NUM_DIM][NUM_DIM] = {
 };
 
 int main(int argc, char** argv) {
-  int size = std::strlen(argv[1]);
+  int size;
 
-  for (int i = 0; i < NUM_DIM; i++) {
-    for (int k = 0; k < size; k++) {
-      for (int j = 0; j <NUM_DIM; j++) {
-        std::cout << NUMBERS[(argv[1][k]-'0')][i][j];
+  for (int arg = 1; arg < argc; arg++) {
+  size = std::strlen(argv[arg]);
+  // printf("Arg: %d\n", argv);
+    for (int i = 0; i < NUM_DIM; i++) {
+      for (int k = 0; k < size; k++) {
+        for (int j = 0; j <NUM_DIM; j++) {
+          std::cout << NUMBERS[(argv[arg][k]-'0')][i][j];
+        }
       }
+      std::cout << std::endl;
     }
-    std::cout << std::endl;
   }
 
   return 0;
