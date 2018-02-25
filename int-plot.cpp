@@ -5,7 +5,6 @@ Homework #2
 Integer Plot Function
 */
 
-
 #include <iostream>
 #include <stdio.h>
 #include <cstring>
@@ -118,12 +117,19 @@ const char NUMBERS[SINGLE_DIGITS][NUM_DIM][NUM_DIM] = {
 int main(int argc, char** argv) {
   int size;
 
+  //move through each command line argument
   for (int arg = 1; arg < argc; arg++) {
+  //gets the length of each argument
   size = std::strlen(argv[arg]);
-  // printf("Arg: %d\n", argv);
+    //positions rows
     for (int i = 0; i < NUM_DIM; i++) {
+      //checks each char in the argument
       for (int k = 0; k < size; k++) {
+        //positions column for each number
         for (int j = 0; j <NUM_DIM; j++) {
+          //(argv[arg][k]-'0') converts each argument char to an int
+          //this int determins which number will be written in the NUMBERS array
+          //the entire row is written for each number before moving to the next row
           std::cout << NUMBERS[(argv[arg][k]-'0')][i][j];
         }
       }
